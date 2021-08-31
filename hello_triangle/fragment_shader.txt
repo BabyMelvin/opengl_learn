@@ -1,0 +1,12 @@
+/*
+ * 当在OpenGL或GLSL中定义一个颜色的时候，
+ * 我们把颜色每个分量的强度设置在0.0到1.0之间
+ */
+
+#version 330 core
+out vec4 FragColor;
+
+void main()
+{
+    FragColor = vec4(1.0f, 0.5f, 0.2f, 1.0f);
+}
