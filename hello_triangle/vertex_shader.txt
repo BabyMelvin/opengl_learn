@@ -1,0 +1,19 @@
+/*顶点着色程序*/
+
+/*GLSL版本要和OpenGL版本相对应*/
+#version 330 core
+
+/*in表示输入，vec3三维向量，变量名称为postion*/
+/*layout 也设定了输入变量的设定值*/
+layout (location = 0) in vec3 position;
+
+void main()
+{
+    // 这个作为输出对象,输出对象需要为4维
+    gl_Position = vec4(postion.x, postion.y, postion.z, 1.0);
+}
+
+
+/**
+*  编译着色程序
+*/
