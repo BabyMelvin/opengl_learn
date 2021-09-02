@@ -8,6 +8,8 @@
 #define STB_IMAGE_IMPLEMENTATION
 #include "../stb_image.h"
 
+float percent = 0.5;
+
 // 监听窗口改变
 void framebuffer_size_callback(GLFWwindow *window, int width, int height)
 {
@@ -18,6 +20,16 @@ void processInput(GLFWwindow *window)
 {
     if (glfwGetKey(window, GLFW_KEY_ESCAPE) == GLFW_PRESS)
         glfwSetWindowShouldClose(window, true);
+
+    if (glfwGetKey(window, GLFW_KEY_UP) == GLFW_PRESS) {
+        std::cout << "up" << std::endl;
+        percent += 0.001;
+        percent = percent >= 1.0 ? 1.0 : percent;
+    } else if (glfwGetKey(window, GLFW_KEY_DOWN) == GLFW_PRESS) {
+        std::cout << "down" << std::endl;
+        percent -= 0.001;
+        percent = percent <= 0.0 ? 0.0 : percent;
+    }
 }
 
 int main()
@@ -164,6 +176,7 @@ int main()
         glBindTexture(GL_TEXTURE_2D, texture2);
 
         ourShader.use();
+        ourShader.setFloat("percent", percent);
         glBindVertexArray(VAO);
         glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, 0);
 
