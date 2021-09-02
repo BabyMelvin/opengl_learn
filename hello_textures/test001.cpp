@@ -48,7 +48,7 @@ int main()
     // 窗口改变后，视口也会跟着变化，则进行callback，动态改变viewport
     glfwSetFramebufferSizeCallback(window, framebuffer_size_callback);
 
-    Shader ourShader("./shader.vs", "./shader.fs");
+    Shader ourShader("./test001.vs", "./test001.fs");
 
     /**set up vertex data(buffer) and configure vertex attibutes***/
     float vertices[] = {
